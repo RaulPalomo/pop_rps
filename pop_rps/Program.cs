@@ -15,10 +15,25 @@ public class PopProject
         dia = Convert.ToInt32(Console.ReadLine());
         mes = Convert.ToInt32(Console.ReadLine());
         any= Convert.ToInt32(Console.ReadLine());
+
+        string Jump = "A.Saltar";
+        string Run = "B.Córrer";
+        string Down = "C.Ajupir-se";
+        string Hide = "D.Amagar-se";
         validat = valida(dia, mes, any);
 
         Console.WriteLine(!validat?"El format no és correcte": "La data és correcta {0}", validat);
-    
+
+        Console.WriteLine(Jump);
+        Console.WriteLine(Run);
+        Console.WriteLine(Down);
+        Console.WriteLine(Hide);
+        string option;
+        do
+        {
+            option=Console.ReadLine().ToUpper();
+        }while(!(option=="A" || option=="B" || option=="C" ||option=="D"));
+        Action(option);
     }
 
     public static bool valida(int day, int month, int year)
@@ -80,5 +95,29 @@ public class PopProject
 
         else return true;
 
+        
+
     }
+
+    public static void Action(string action)
+    {
+        if (action == "A")
+        {
+            Console.WriteLine("Saltar");
+        }
+        else if (action == "B")
+        {
+            Console.WriteLine("Córrer");
+        }
+        else if (action == "C")
+        {
+            Console.WriteLine("Ajupir-se");
+        }
+        else if(action == "D")
+        {
+            Console.WriteLine("Amagar-se");
+        }
+    }
+    
+
 }
